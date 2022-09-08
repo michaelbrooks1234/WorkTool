@@ -8,10 +8,18 @@ class Program2
     {
 
         string path = Directory.GetCurrentDirectory();
-        string[] credentials = System.IO.File.ReadAllLines(@path+"/src/startupConfig.txt");
+        string[] credentials = System.IO.File.ReadAllLines(@path+"/startupConfig.txt");
         Dictionary<string, string> credentialsDict = GetCredentials(credentials);
 
-        await Authorization.Authorize(credentialsDict);
+        string loginToken = await Authorization.Authorize(credentialsDict);
+        string[] secretCredentials = System.IO.File.ReadAllLines(@path+"/secret.txt");
+
+        secretCredentials[0] = "loginToken=" + loginToken;
+
+        await File.WriteAllLinesAsync("secret.txt", secretCredentials);
+
+        Console.Write("Close window to exit.");
+        Console.ReadLine();
     }
 
     static Dictionary<string,string> GetCredentials(string[] credentials)

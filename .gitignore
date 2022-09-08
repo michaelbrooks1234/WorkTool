@@ -1,9 +1,9 @@
 .vscode/*
 
-secret.txt
+secret*
 
-src/startupConfig*
+startupConfig*
 
 /bin*
 
-obj/*
+obj/
