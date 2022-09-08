@@ -1,7 +1,0 @@
-workAdminURL=
-baseUrl=
-userName=
-user=
-password=
-personalUser=
-personalPassword=
