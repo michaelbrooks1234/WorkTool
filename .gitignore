@@ -1,3 +1,6 @@
 .vscode/
 .gitignore
-secret
+.secret
+./src/startupConfig
+./bin/
+./obj/

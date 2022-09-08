@@ -1,19 +1,17 @@
-﻿using System.Text.Json;
-namespace System;
+﻿namespace MainProgram;
 
 class Program2
 {
-    static void Main()
+    static readonly HttpClient client = new HttpClient();
+
+    static async Task Main()
     {
-        using HttpClient client = new HttpClient();
 
         string path = Directory.GetCurrentDirectory();
         string[] credentials = System.IO.File.ReadAllLines(@path+"/src/startupConfig.txt");
-
         Dictionary<string, string> credentialsDict = GetCredentials(credentials);
 
-        
-
+        await Authorization.Authorize(credentialsDict);
     }
 
     static Dictionary<string,string> GetCredentials(string[] credentials)
