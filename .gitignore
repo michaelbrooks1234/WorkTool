@@ -1,6 +1,9 @@
-.vscode/
-.gitignore
-.secret
-./src/startupConfig
-./bin/
-./obj/
+.vscode/*
+
+secret.txt
+
+src/startupConfig*
+
+/bin*
+
+obj/*
